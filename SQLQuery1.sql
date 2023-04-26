@@ -54,7 +54,7 @@ Price_id int references Qiymet(Id)
 
 
 
-CREATE TABLE oturucu(
+CREATE TABLE Oturucu(
 Id int IDENTITY PRIMARY KEY,
 [Type] nvarchar(30) not null,
 Fuel_id int references Yanacaq(Id)
@@ -64,7 +64,7 @@ Fuel_id int references Yanacaq(Id)
 CREATE TABLE Suretler_qutusu(
 Id int IDENTITY PRIMARY KEY,
 [Type] nvarchar(40) not null,
-Pass_id int references oturucu(Id)
+Pass_id int references Oturucu(Id)
 )
 
 
@@ -116,5 +116,29 @@ Yan_perdeler bit,
 Veziyyet_id int references Veziyyet(Id)
 )
 
+
+
+CREATE TABLE Shekiller(
+Id int IDENTITY,
+On_gorunush nvarchar(100) not null,
+Arxa_gorunush nvarchar(100) not null,
+On_panel nvarchar(100) not null,
+Techizat_id int references Techizat(Id)
+)
+
+
+
+CREATE TABLE Contact(
+Id int IDENTITY PRIMARY KEY,
+[Name] nvarchar(40) not null,
+Email nvarchar(80) not null UNIQUE,
+Number int not null
+)
+
+CREATE TABLE City(
+Id int IDENTITY,
+City nvarchar(70) not null,
+Contact_id int references Contact(Id)
+)
 
 
