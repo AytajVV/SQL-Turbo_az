@@ -249,6 +249,39 @@ INSERT INTO AvtoContact VALUES
 
 -------------------------------------QUERIES----------------------------------------------------
 
+SELECT ma.Name Model, mo.Name Marka, b.Ban_type Ban_novu, b.Yurush, r.Color_name Reng, q.Price Qiymet, q.Own Necenci_sahibi, y.Fuel_type, o.Type Oturucu, s_q.Type Suretler_qutusu, i.Year il, muh.Bazar, muh.Engine_capacity Muherrikin_hecmi_sm3, muh.Engine_power Muherrikin_gucu_a_g, v.Qezali, v.Renglenib, v.Vurugu_var, v.Kreditdedir, v.Barter, v.VIN_code, v.Yerlerin_sayi, v.Additional_Information Elave_melumat, tc.ABS, tc.Arxa_goruntu_kamerasi, tc.Deri_salon, tc.Kondisioner, tc.Ksenon_lampalar, tc.Lyuk, tc.Merkezi_qapanma, tc.Oturacaqlarin_isidilmesi, tc.Oturacaqlarin_ventilyasiyasi, tc.Park_radari, tc.Yagish_sensoru, tc.Yan_perdeler, tc.Yungul_lehimli_diskler, sh.On_gorunush, sh.Arxa_gorunush, sh.On_panel, c.City Sheher, con.Name Ad, con.Email, con.Number Elaqe_nomresi FROM Marka ma
+INNER JOIN Model mo
+ON ma.Id = mo.Marka_id
+INNER JOIN ModelBan mb
+ON mo.Id = mb.Model_id
+INNER JOIN Ban b
+ON b.Id = mb.Ban_id
+INNER JOIN Reng r
+ON r.ModelBan_id = mb.Id
+INNER JOIN Qiymet q
+ON q.Color_id = r.Id
+INNER JOIN Yanacaq y
+ON y.Price_id = q.Id
+INNER JOIN Oturucu o
+ON o.Fuel_id = y.Id
+INNER JOIN Suretler_qutusu s_q
+ON s_q.Pass_id = o.Id
+INNER JOIN İl i
+ON i.Speed_id = s_q.Id
+INNER JOIN Muherrik muh
+ON muh.Year_id = i.Id
+INNER JOIN Veziyyet v
+ON v.Engine_id = muh.Id
+INNER JOIN Techizat tc
+ON tc.Veziyyet_id = v.Id
+INNER JOIN Shekiller sh
+ON sh.Techizat_id = tc.Id
+INNER JOIN AvtoContact ac
+ON ac.Shekiller_Id = sh.Id
+INNER JOIN City c
+ON c.Id = ac.City_Id
+INNER JOIN Contact con
+ON con.Id = c.Contact_id
 
 
 
