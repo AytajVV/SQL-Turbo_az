@@ -142,3 +142,115 @@ Contact_id int references Contact(Id)
 )
 
 
+CREATE TABLE AvtoContact(
+Id int identity,
+Shekiller_Id int references Shekiller(Id),
+City_Id int references City(Id)
+)
+
+
+
+
+
+
+
+
+-----------------------------------------VALUES------------------------------------------------
+
+USE Turbo_az
+
+INSERT INTO Marka VALUES
+('Audi')
+
+
+INSERT INTO Model VALUES
+('Q8', 1),
+('RS7', 1),
+('S8', 1)
+
+INSERT INTO Ban VALUES
+('Offroader', 0),
+('Rodster', 100),
+('Kabriolet', 0),
+('Sedan', 200),
+('Universal', 400)
+
+
+INSERT INTO ModelBan VALUES
+(1, 1)
+
+
+INSERT INTO Reng VALUES 
+('Qara', 1),
+('Ag', 1)
+
+
+INSERT INTO Qiymet VALUES
+(200000, 1, 1),
+(250000, 1, 2)
+
+INSERT INTO Yanacaq VALUES
+('Benzin', 1),
+('Benzin', 2)
+
+
+INSERT INTO Oturucu VALUES
+('Tam', 1),
+('Tam', 2)
+
+
+INSERT INTO Suretler_qutusu VALUES
+('Avtomat', 1),
+('Avtomat', 2)
+
+
+INSERT INTO İl VALUES
+(2022, 1),
+(2023, 2)
+
+
+INSERT INTO Muherrik VALUES
+(3000, 340, 'Amerika', 1),
+(3000, 350, 'Amerika', 2)
+
+
+INSERT INTO Veziyyet VALUES
+(0, 0, 0, 4, 0, 0, 12345, 'Ela veziyyetdedir', 1),
+(0, 0, 0, 2, 0, 1, 234, 'Idealdir', 2)
+
+
+
+INSERT INTO Techizat VALUES
+(1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 2),
+(1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 3)
+
+------------Veziyyet tableda id-nin BASHI qachib---------------
+
+
+INSERT INTO Shekiller VALUES
+('SHEKIL 1', 'SHEKIL 2', 'SHEKIL 3', 4),
+('SHEKIL 1', 'SHEKIL 2', 'SHEKIL 3', 5)
+
+-----------TECHIZATDA ID-NIN BASHI QACHIB-----------------
+-----------SHEKILLERDE ID-NIN BASI QACIB--------------
+
+INSERT INTO Contact VALUES
+('Lorem', 'lorem@gmail.com', 1234567890)
+
+INSERT INTO City VALUES
+('Baku', 1)
+
+INSERT INTO AvtoContact VALUES 
+(2, 1),
+(3, 1)
+
+
+
+
+-------------------------------------QUERIES----------------------------------------------------
+
+
+
+
+
+
